@@ -1,0 +1,20 @@
+
+<div class="container">
+	<div class="row">
+	    <div class="col-md-12 col-md-offset-10"><h1>Add Book</h1></div>
+	    <form #f="ngForm" (ngSubmit)="addBook(f.value)" novalidate>
+		    <div class="col-md-12"><input type="text" name="title" ngModel id="textBox" value="{{title}}" placeholder="Title" class="form-control"></div>
+		    <div class="col-md-12"><input type="text" name="author" ngModel id="textBox" value="{{author}}" placeholder="Author" class="form-control"></div>
+	    	<div class="col-md-12"><input type="text" name="domain" ngModel id="textBox" value="{{domain}}" placeholder="Domain" class="form-control"></div>
+		    <div class="col-md-12"><button class="btn btn-primary" type="ngSubmit" >Add</button> <button class="btn btn-primary" (ngClick)="clearData()" type="Reset">Reset</button></div>
+		</form>
+	</div>
+	<div class="row">
+		<h1>List of books</h1>
+		<uL >
+			  <li *ngFor="let book of bookService.books">
+			    {{ book.title }}, {{book.author}}, {{book.domain}}
+			  </li>
+		</uL>
+	</div>
+</div>
